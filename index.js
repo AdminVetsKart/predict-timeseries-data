@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const { createModel, loadModel, trainModel, forecast } = require('./model');
-const trainingData = require('./data.json');
+const { createModel, loadModel, trainModel, forecast } = require('./modelTrain');
+const trainingData = require('./trainingData.json');
 
 const modelPath = path.join(__dirname, 'model.json');
 
@@ -10,10 +10,20 @@ if (fs.existsSync(modelPath)) {
   // Load the existing model
   const net = createModel();
   loadModel(net, modelPath);
-
   // Make predictions using the loaded model
-  const initialSequence = [[1, 5], [2, 4]];
-  const numFuturePredictions = 2;
+  const initialSequence = [[
+    287895,
+    284000,
+    288345,
+    283305
+  ],
+  [
+    283645,
+    285190,
+    286645,
+    282580
+  ]];
+  const numFuturePredictions = 10;
   const futureValues = forecast(net, initialSequence, numFuturePredictions);
   console.log('next 2 predictions', futureValues);
 } else {
@@ -26,8 +36,19 @@ if (fs.existsSync(modelPath)) {
   fs.writeFileSync(modelPath, JSON.stringify(modelData));
 
   // Make predictions using the newly trained model
-  const initialSequence = [[1, 5], [2, 4]];
-  const numFuturePredictions = 2;
+  const initialSequence = [[
+    287895,
+    284000,
+    288345,
+    283305
+  ],
+  [
+    283645,
+    285190,
+    286645,
+    282580
+  ]];
+  const numFuturePredictions = 10;
   const futureValues = forecast(net, initialSequence, numFuturePredictions);
   console.log('next 2 predictions', futureValues);
 }

@@ -27,6 +27,8 @@ function csvToJson(csvFilePath, jsonFilePath) {
 
 // Usage: Pass the input CSV file path and desired output JSON file path
 const csvFilePath = 'stock.csv';
-const jsonFilePath = 'output.json';
+const jsonFilePath = 'prepare.json';
 
 csvToJson(csvFilePath, jsonFilePath);
+
+console.log("CSV to JSON converted");
