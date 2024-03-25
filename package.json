@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "brain.js": "^1.6.1"
+    "brain.js": "^1.6.1",
+    "csv-parser": "^3.0.0",
+    "plotly.js-dist": "^2.30.1"
   }
 }
