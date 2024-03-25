@@ -10,6 +10,7 @@ function createModel() {
     outputSize: 2,
   });
 }
+//
 
 function loadModel(net, modelPath) {
   const modelData = JSON.parse(fs.readFileSync(modelPath, 'utf8'));
